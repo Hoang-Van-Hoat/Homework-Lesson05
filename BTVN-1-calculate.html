@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculate</title>
+    <script type="text/javascript">
+        setTimeout(function(){
+            alert("Chào mừng bạn đến với trang thực hành");
+        }, 500);
+        
+        function onclicktitle() {
+            window.alert("Bạn đã click vào title");
+        }
+        function calculateResult() {
+            const firstInput = document.getElementsByName("first-number")[0].value;
+            const secondInput = document.getElementsByName("second-number")[0].value;
+            const firstNumber = Number.parseInt(firstInput);
+            const secondNumber = Number.parseInt(secondInput);
+
+            if (Number.isInteger(firstNumber) && Number.isInteger(secondNumber)){
+                const sum = firstNumber + secondNumber;
+                
+                document.getElementsByClassName("result")[0].innerHTML = `Result is: ${sum}`;
+                return;
+            }
+            if (isNaN(firstInput)){
+                alert("Vui lòng nhập kiểu số");
+                return;
+            }
+            if (isNaN(secondInput)){
+                alert("Vui lòng nhập kiểu số");
+                return;
+            }
+            if (firstInput == "" || secondInput == ""){
+                alert("Vui lòng điền đầy đủ");
+                return;
+            }
+        }
+        function resetForm(){
+            document.forms[0].reset();
+        }
+    </script>
+</head>
+<body>
+    <form action="">
+    <div id="title" onclick="onclicktitle()">
+        <h1>Thực hành function Calculate</h1>
+    </div>
+    <div class="calculate-box">
+        <p>Please input the first number:</p>
+        <input type="text" placeholder="First number" name="first-number">
+        <p>Please input the second number:</p>
+        <input type="text" placeholder="Second number" name="second-number">
+        <input type="button" value="Calculate" onclick="calculateResult()" style="color:blue;">
+        <input type="button" value="Reset" onclick="resetForm()">
+        <div class="result" style="color: red;"></div>
+    </div>
+    </form>
+</body>
+</html>
